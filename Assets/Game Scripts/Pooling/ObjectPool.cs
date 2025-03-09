@@ -41,4 +41,8 @@ public class ObjectPool : MonoBehaviour
         }
         return CreateObject();
     }
+
+    public GameObject GetPoolObj() {
+        return poolObject;
+    }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class PowerUp : MonoBehaviour
 {
     public static int total = 0;
     public float minDistance = 2f;
+
     void OnEnable()
     {
         RandomPos();
@@ -16,9 +18,9 @@ public class PowerUp : MonoBehaviour
         int attemps = 0;
         do {
             newPos = new Vector3(
-            Random.Range(0, 15), 
+            UnityEngine.Random.Range(0, 15), 
             transform.position.y,
-            Random.Range(0, 15)
+            UnityEngine.Random.Range(0, 15)
             );
             posValid = checkValid(newPos);
             attemps ++;
@@ -46,8 +48,28 @@ public class PowerUp : MonoBehaviour
         return true;
     }
     IEnumerator Expired() {
-        yield return new WaitForSeconds(Random.Range(3f, 10f));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(3f, 10f));
         this.gameObject.SetActive(false);
         total --;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+         Transform current = other.transform;
+        while (current != null) {
+            if (current.CompareTag("Player")) {
+                PlayerStateMachine playerStateMachine = current.GetComponent<PlayerStateMachine>();
+                if (playerStateMachine != null)
+                {
+                    playerStateMachine.hasPowerUp = true;
+                    playerStateMachine.playerDetect.detectRange *= 2;
+                    playerStateMachine.playerDetect.circleDetection.transform.localScale *= 2;
+                }   
+                gameObject.SetActive(false);
+                total--;
+                return;
+            }
+            current = current.parent;
+        }
     }
 }

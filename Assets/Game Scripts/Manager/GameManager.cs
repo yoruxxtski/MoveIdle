@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public ObjectPool powerPool;
+    public ObjectPool[] projectilesPool;
     public static GameManager instance;
     public bool gameOver;
     void Awake()

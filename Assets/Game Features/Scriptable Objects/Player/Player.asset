@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2391ac059e8064b853fcca018a948a, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  playerName: You
+  playerLevel: 1
+  weaponData: {fileID: 11400000, guid: c8a500bcb957ddc4995d2d2e9a72b145, type: 2}
+  hat: {fileID: -927199367670048503, guid: 67c567da09b9c714b9b2a5b7f471fd7c, type: 3}
+  pants: {fileID: 0}
