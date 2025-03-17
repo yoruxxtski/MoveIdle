@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   playerName: You
+  level: 1
   playerLevel: 1
-  weaponData: {fileID: 11400000, guid: c8a500bcb957ddc4995d2d2e9a72b145, type: 2}
+  enemyKilled: 0
+  weaponData: {fileID: 11400000, guid: 76c1d25a19319f349befdd71c9efa621, type: 2}
   hat: {fileID: -927199367670048503, guid: 67c567da09b9c714b9b2a5b7f471fd7c, type: 3}
   pants: {fileID: 0}

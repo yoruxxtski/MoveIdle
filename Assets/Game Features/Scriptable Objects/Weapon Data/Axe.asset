@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac1f6a2753b1a0e49844e5fb42501d78, type: 3}
-  m_Name: Z
+  m_Name: Axe
   m_EditorClassIdentifier: 
-  weaponName: Z
-  weaponType: 0
-  weapon: {fileID: 4017558565085647027, guid: f5b660d089b3efa499f6fb566733ed68, type: 3}
-  projectile: {fileID: -2306832960100177066, guid: 89f3972e9213b924d954a10ceeaf6556, type: 3}
+  weaponName: Axe
+  weaponType: 1
+  weapon: {fileID: 5997241776985073627, guid: 0869f5ef331e32f4d8bbd3caf6c4de44, type: 3}
+  projectile: {fileID: 3453747776893300489, guid: aea53e39f908f4d439bf646fc4ba5b5a, type: 3}
+  weaponIcon: {fileID: 21300000, guid: c0e85ffc93ead054f8c67b9085091a5d, type: 3}
+  price: 100
+  isUnlocked: 1

@@ -15,6 +15,7 @@ public class PlayerAttack : StateBase
     {
         base.OnEnter(stateController);
         playerController = stateController as PlayerStateMachine;
+        
         playerController.playerAnimation.SetAttackAnimation(true);  
         if (playerController.hasPowerUp){
             playerController.playerAnimation.SetUltiAnimation(true);
@@ -61,6 +62,8 @@ public class PlayerAttack : StateBase
         prj.dir = playerController.transform.forward;
         prj.weaponType = playerController.playerData.weaponData.weaponType;
         prj.attackPos = playerController.attackPos.transform;
+
+        prj.thrower = playerController.transform.gameObject;
 
         if (playerController.hasPowerUp) {
             prj.PowerUp();

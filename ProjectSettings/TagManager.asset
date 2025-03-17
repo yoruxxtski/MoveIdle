@@ -5,17 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - PowerUp
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Container
   - Water
   - UI
   - Player
   - Enemy
-  - 
-  - 
+  - Ground
+  - Die
   - 
   - 
   - 

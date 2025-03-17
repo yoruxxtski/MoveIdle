@@ -10,4 +10,7 @@ public class WeaponData : ScriptableObject
     public weaponType weaponType;
     public GameObject weapon;
     public Projectile projectile;
+    public Sprite weaponIcon;
+    public int price;
+    public bool isUnlocked;
 }

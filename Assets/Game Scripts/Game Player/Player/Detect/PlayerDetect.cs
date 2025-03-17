@@ -22,21 +22,33 @@ public class PlayerDetect : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectRange);
     }
     void Update()
-    {
-        CheckEnemies();
-        if (enemySelected != null && isRunning && playerStateMachine.isAlive) {
-            playerStateMachine.ChangeState(playerStateMachine.playerAttack);
+    { 
+        if (playerStateMachine.isAlive)
+            CheckEnemies();
+        else return;
+
+        if (enemySelected != null && isRunning) {
+                playerStateMachine.ChangeState(playerStateMachine.playerAttack);
         }
     }
 
     public void CheckEnemies() {
+        
         Collider[] colliders = Physics.OverlapSphere(transform.position, detectRange, enemyMask);
+        
         // Case : Already found an enemy already -> Check if that enemy 
         // is already checked then keep else change
         if (enemySelected != null) {
             bool sameE = false;
             foreach (Collider collider in colliders) {
-                if (collider.transform.root.gameObject == prevSelected) {
+
+                Transform enemyCollider = collider.transform;
+
+                while (enemyCollider.parent != null && enemyCollider.gameObject.tag != "Enemy") {
+                    enemyCollider = enemyCollider.parent;
+                }
+
+                if (enemyCollider.gameObject == prevSelected) {
                     sameE = true;
                     break;
                 }
@@ -52,9 +64,16 @@ public class PlayerDetect : MonoBehaviour
 
         // Didn't found an enemy
         if (colliders.Length > 0) {
-            // Get the first enemy found 
-            enemySelected = colliders[0].transform.root.gameObject;
+            // Get the first enemy found
+            Transform enemyCollider = colliders[0].transform;
+
+            while (enemyCollider.parent != null && enemyCollider.gameObject.tag != "Enemy") {
+                enemyCollider = enemyCollider.parent;
+            }
+
+            enemySelected = enemyCollider.gameObject;
             prevSelected = enemySelected;
+            if (enemySelected != null)
             enemySelected.gameObject.GetComponent<EnemySelectorIndicator>().TurnSelector(true); 
         }
     }

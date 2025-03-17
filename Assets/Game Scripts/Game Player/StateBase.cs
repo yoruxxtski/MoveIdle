@@ -15,5 +15,9 @@ public abstract class StateBase
             PlayerStateMachine playerStateMachine = stateController as PlayerStateMachine;
             playerStateMachine.playerAnimation.ResetAnimation();
         }
+        if (stateController is EnemyStateMachine) {
+            EnemyStateMachine enemyStateMachine = stateController as EnemyStateMachine;
+            enemyStateMachine.enemyAnimation.ResetAnimation();
+        }
     }
 }

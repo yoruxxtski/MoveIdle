@@ -6,10 +6,11 @@ public class ObjectPool : MonoBehaviour
 {
     [SerializeField] private GameObject poolObject;
     [SerializeField] private int numCreated = 20;
-    private List<GameObject> createdObjects = new();
+    public List<GameObject> createdObjects = new();
 
     //? keep tabs of current object
     private int index;
+    private int count;
 
     void Awake()
     {
@@ -23,6 +24,8 @@ public class ObjectPool : MonoBehaviour
     */
     public GameObject CreateObject() {
         GameObject createdObj = Instantiate(poolObject, transform);
+        createdObj.name = createdObj.name + " " + count;
+        count ++;
         createdObjects.Add(createdObj);
         return createdObj;
     }

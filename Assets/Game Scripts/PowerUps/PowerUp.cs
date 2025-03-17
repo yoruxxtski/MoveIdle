@@ -55,10 +55,36 @@ public class PowerUp : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-         Transform current = other.transform;
+        Transform current = other.transform;
+        GameObject enemy = current.root.gameObject;
+        if (enemy.CompareTag("Enemy")) {
+            EnemyStateMachine enemyStateMachine = enemy.GetComponent<EnemyStateMachine>();
+            if (enemyStateMachine.hasPowerUp) {
+                gameObject.SetActive(false);
+                total--;
+                return;
+            }
+            if (enemyStateMachine != null) {
+                enemyStateMachine.hasPowerUp = true;
+                enemyStateMachine.enemyDetail.detectRange *= 2;
+            }
+            gameObject.SetActive(false);
+            total--;
+            return;
+        }
+
+
         while (current != null) {
             if (current.CompareTag("Player")) {
                 PlayerStateMachine playerStateMachine = current.GetComponent<PlayerStateMachine>();
+
+                if (playerStateMachine.hasPowerUp) {
+                    gameObject.SetActive(false);
+                    total--;
+                    return;
+                }
+
+                
                 if (playerStateMachine != null)
                 {
                     playerStateMachine.hasPowerUp = true;

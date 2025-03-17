@@ -5,8 +5,12 @@ public class GameManager : MonoBehaviour
 {
     public ObjectPool powerPool;
     public ObjectPool[] projectilesPool;
+    public ObjectPool arrowPool;
+    public ObjectPool enemyPool;
     public static GameManager instance;
-    public bool gameOver;
+    public static bool gameOver;
+    public int numsOfEnemies;
+
     void Awake()
     {
         if (instance != null && instance != this) {

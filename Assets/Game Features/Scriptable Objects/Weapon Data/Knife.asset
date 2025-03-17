@@ -16,3 +16,6 @@ MonoBehaviour:
   weaponType: 1
   weapon: {fileID: 6297072741642610771, guid: 57c755ceea5a65d41a5bebea4514a4cb, type: 3}
   projectile: {fileID: 7269133253978583937, guid: 972658de3e6ceb14e89b8e5223946cd0, type: 3}
+  weaponIcon: {fileID: 21300000, guid: c6b148b2d875e90409d91af6d6938b01, type: 3}
+  price: 300
+  isUnlocked: 0
